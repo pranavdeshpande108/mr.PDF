@@ -1,10 +1,12 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { TextChunk } from '../types';
 
+// FIX: The API key must be retrieved from `process.env.API_KEY` as per the coding guidelines.
+// This change also resolves the TypeScript error "Property 'env' does not exist on type 'ImportMeta'".
 const API_KEY = process.env.API_KEY;
 
 if (!API_KEY) {
-  throw new Error("API_KEY environment variable is not set");
+  throw new Error("The API_KEY environment variable is not set. Please ensure it is configured.");
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
