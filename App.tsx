@@ -19,7 +19,10 @@ import { HistoryIcon } from './components/icons/HistoryIcon';
 
 // Set up pdf.js worker. This is crucial for performance.
 import * as pdfjs from 'pdfjs-dist';
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
 
 export default function App() {
