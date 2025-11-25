@@ -17,10 +17,9 @@ import HistoryModal from './components/HistoryModal';
 import { HistoryIcon } from './components/icons/HistoryIcon';
 
 
-// Set up pdf.js worker. This is crucial for performance and compatibility with Vite.
+// Set up pdf.js worker from a CDN. This is a robust way to avoid build issues.
 import * as pdfjs from 'pdfjs-dist';
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.js?url';
-pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
 
 export default function App() {
