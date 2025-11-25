@@ -1,12 +1,12 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { TextChunk } from '../types';
 
-// FIX: The API key must be retrieved from `process.env.API_KEY` as per the coding guidelines.
-// This change also resolves the TypeScript error "Property 'env' does not exist on type 'ImportMeta'".
+// This now correctly reads the API key provided by the vite.config.js file.
 const API_KEY = process.env.API_KEY;
 
 if (!API_KEY) {
-  throw new Error("The API_KEY environment variable is not set. Please ensure it is configured.");
+  // This error will now correctly trigger if the VITE_API_KEY is missing in Vercel.
+  throw new Error("API_KEY environment variable is not set. Please ensure 'VITE_API_KEY' is configured in your Vercel project settings and trigger a new deployment.");
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
