@@ -17,12 +17,10 @@ import HistoryModal from './components/HistoryModal';
 import { HistoryIcon } from './components/icons/HistoryIcon';
 
 
-// Set up pdf.js worker. This is crucial for performance.
+// Set up pdf.js worker. This is crucial for performance and compatibility with Vite.
 import * as pdfjs from 'pdfjs-dist';
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url,
-).toString();
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.js?url';
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 
 export default function App() {
