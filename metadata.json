@@ -1,0 +1,5 @@
+{
+  "name": "Mr.PDF",
+  "description": "An intelligent assistant to chat with your PDF documents. Summarize, ask questions, and convert text to speech with the power of Gemini.",
+  "requestFramePermissions": []
+}
